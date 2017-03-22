@@ -46,11 +46,14 @@ var qobj3 = {
     }
   }
 }
+//------------------------------------------------------
+
 
 
 //--------------------------------------------------
 var ask = function(qobj){
-	alert(qobj.question())
+	//alert(qobj.question())
+  var $question = document.getElementById("question")
 }
 var check = function(qobj){
 	var answer = prompt(qobj.question())
@@ -58,7 +61,15 @@ var check = function(qobj){
 	return flag
 }
 var update = function(qobj){
-
+  ask(qobj)
+  var flag = check(qobj)
+  if(flag){
+    score = score + 1
+    alert("CORRECT!!! SCORE: " + score.toString())
+  }else{
+    score = score - 1
+    alert("CORRECT!!! SCORE: " + score.toString())
+  }
 }
 
 //---------------------------------------------------
@@ -68,13 +79,5 @@ var qobjList = [qobj1,qobj2,qobj3]
 
 for(var i = 0 ; i < qobjList.length ; i++){
   //alert(qobjList[i].question())
-  ask(qobjList[i])
-  var flag = check(qobjList[i])
-  if(flag){
-  	score = score + 1
-  	alert("CORRECT!!! SCORE: " + score.toString())
-  }else{
-  	score = score - 1
-  	alert("CORRECT!!! SCORE: " + score.toString())
-  }
+  update(qobjList[i])
 }
