@@ -52,32 +52,44 @@ var qobj3 = {
 
 //--------------------------------------------------
 var ask = function(qobj){
-	//alert(qobj.question())
+  //var answer = prompt(qobj.question())
   var $question = document.getElementById("question")
+  update($question,qobj.question(),null)
 }
 var check = function(qobj){
-	var answer = prompt(qobj.question())
-	var flag = qobj.check(answer.toString())
+  var $feedback = document.getElementById("feedback")
+  var answer = prompt("Your answer is ?: ")
+	update($feedback,qobj.cname.toString(),null)
+  var flag = qobj.check(answer.toString())
 	return flag
 }
-var update = function(qobj){
-  ask(qobj)
-  var flag = check(qobj)
-  if(flag){
-    score = score + 1
-    alert("CORRECT!!! SCORE: " + score.toString())
-  }else{
-    score = score - 1
-    alert("CORRECT!!! SCORE: " + score.toString())
+var update = function(element,content,klass){
+  //var p  = element.firstChild || document.createElement("p")
+  var p  =  document.createElement("p")
+  p.textContent = content
+  element.appendChild(p)
+  if(klass){
+    p.className = klass
   }
 }
-
+//--------------------------------------------
+var gameOver = function(){}
 //---------------------------------------------------
 
 
 var qobjList = [qobj1,qobj2,qobj3]
 
 for(var i = 0 ; i < qobjList.length ; i++){
-  //alert(qobjList[i].question())
-  update(qobjList[i])
+  ask(qobjList[i])
+  var flag = check(qobjList[i])
+  var $score = document.getElementById("score")
+  if(flag){
+    score = score + 1
+    update($score,score)
+    //alert("CORRECT!!! SCORE: " + score.toString())
+  }else{
+    score = score - 1
+    update($score,score)
+    //alert("CORRECT!!! SCORE: " + score.toString())
+  }
 }
