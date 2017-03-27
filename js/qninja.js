@@ -64,8 +64,8 @@ var check = function(qobj){
 	return flag
 }
 var update = function(element,content,klass){
-  //var p  = element.firstChild || document.createElement("p")
-  var p  =  document.createElement("p")
+  var p  = element.firstChild || document.createElement("p")
+  //var p  =  document.createElement("p")
   p.textContent = content
   element.appendChild(p)
   if(klass){
@@ -73,7 +73,10 @@ var update = function(element,content,klass){
   }
 }
 //--------------------------------------------
-var gameOver = function(){}
+var gameOver = function(){
+  var $game_status = document.getElementById("gamestatus")
+  update($game_status,"Game Over Final Score:" + score)
+}
 //---------------------------------------------------
 
 
@@ -89,7 +92,10 @@ for(var i = 0 ; i < qobjList.length ; i++){
     //alert("CORRECT!!! SCORE: " + score.toString())
   }else{
     score = score - 1
-    update($score,score)
+    update($score,score.toString())
     //alert("CORRECT!!! SCORE: " + score.toString())
   }
+  gameOver()
+  score = 0
+  update($score,score)
 }
