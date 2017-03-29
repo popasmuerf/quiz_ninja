@@ -51,6 +51,9 @@ var qobj3 = {
 
 
 //--------------------------------------------------
+
+var $start = document.getElementById("start")
+
 var ask = function(qobj){
   //var answer = prompt(qobj.question())
   var $question = document.getElementById("question")

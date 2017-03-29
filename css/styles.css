@@ -8,4 +8,41 @@ header{
         color: #c00;
         text-transform: uppercase ;
 }
+button{
+        font:bold 24px/150% Arial, Helvetica, sans-serif;
+        display: block;
+        width: 300px;
+        padding: 10px;
+        margin: 10px auto;
+}
 
+section p{
+        font: bold 24px/150% Arial, Helvetica, sans-serif;
+        background: #ccc;
+        color: #666;
+        text-transform: center ;
+        padding: 10px;
+        margin:10px;
+        width:300px;
+}
+.right{
+	background: #0c0;
+	border:#090 2px solid;
+	color: #060;
+}
+.right{
+	background: #0c0;
+	border:#900 2px solid;
+	color: #600;
+}
+
+p{
+	width:200px;
+	height:200px;
+	margin:10px;
+	background-color:#ccc;
+	float:left;
+}
+.highlight{
+	background-color:red;
+}
